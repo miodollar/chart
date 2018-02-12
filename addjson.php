@@ -1,21 +1,9 @@
-<?php 
-// $sql="select * from Posts limit 20"; 
+<?php
+$myObj->name = "John";
+$myObj->age = 30;
+$myObj->city = "New York";
 
-$response = array();
-$posts = array();
-$result=mysql_query($sql);
-while($row=mysql_fetch_array($result)) { 
-  $title=$row['title']; 
-  $url=$row['url']; 
+$myJSON = json_encode($myObj);
 
-  $posts[] = array('title'=> $title, 'url'=> $url);
-} 
-
-$response['posts'] = $posts;
-
-$fp = fopen('results.json', 'w');
-fwrite($fp, json_encode($response));
-fclose($fp);
-
-
-?> 
+echo $myJSON;
+?>
